@@ -130,6 +130,8 @@ function saveData() {
     document.getElementById(`${n}_defeat`).innerHTML = defeats[n]
 
     document.getElementById(`${n}_draw`).innerHTML = draws[n]
+
+    calculatePoints(n)
   }
 }
 
@@ -137,6 +139,8 @@ function increaseVictoryPoints(i) {
   victories[i] += 1
 
   document.getElementById(`${i}_victory`).innerHTML = victories[i]
+
+  calculatePoints(i)
 }
 
 function decreaseVictoryPoints(i) {
@@ -144,6 +148,8 @@ function decreaseVictoryPoints(i) {
   console.log(victories)
 
   document.getElementById(`${i}_victory`).innerHTML = victories[i]
+
+  calculatePoints(i)
 }
 
 function increaseDefeatPoints(i) {
@@ -151,6 +157,8 @@ function increaseDefeatPoints(i) {
   console.log(defeats)
 
   document.getElementById(`${i}_defeat`).innerHTML = defeats[i]
+
+  calculatePoints(i)
 }
 
 function decreaseDefeatPoints(i) {
@@ -158,6 +166,8 @@ function decreaseDefeatPoints(i) {
   console.log(defeats)
 
   document.getElementById(`${i}_defeat`).innerHTML = defeats[i]
+
+  calculatePoints(i)
 }
 
 function increaseDrawPoints(i) {
@@ -165,6 +175,8 @@ function increaseDrawPoints(i) {
   console.log(draws)
 
   document.getElementById(`${i}_draw`).innerHTML = draws[i]
+
+  calculatePoints(i)
 }
 
 function decreaseDrawPoints(i) {
@@ -172,8 +184,12 @@ function decreaseDrawPoints(i) {
   console.log(draws)
 
   document.getElementById(`${i}_draw`).innerHTML = draws[i]
+
+  calculatePoints(i)
 }
 
-function increasePoints() {}
+function calculatePoints(i) {
+  score[i] = victories[i] * 3 - defeats[i] * 1 + draws[i] * 1
 
-function decreasePoint() {}
+  document.getElementById(`${i}_score`).innerHTML = score[i]
+}
